@@ -6,7 +6,7 @@
 # separate terms of service, privacy policy, and support
 # documentation.
 
-name: Java CI with Maven
+name: Maven Github Actions Demo
 
 on:
   push:
@@ -30,3 +30,12 @@ jobs:
     - name: Build with Maven
       run: mvn clean install
 
+    - name: Build & push Docker image
+      uses: mr-smithers-excellemt/docker-build-push@v5
+      with:
+        image: gokulloganathan/maven-github-actions-demo
+        tags: latest
+        registry: docker.io
+        dockerfile: Dockerfile
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
