@@ -31,7 +31,7 @@ jobs:
       run: mvn clean install
 
     - name: Build & push Docker image
-      uses: mr-smithers-excellemt/docker-build-push@v5
+      uses: mr-smithers-excellemt/docker-build-push@v6
       with:
         image: gokulloganathan/maven-github-actions-demo
         tags: latest
